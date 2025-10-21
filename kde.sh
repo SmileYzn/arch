@@ -25,7 +25,7 @@ sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completio
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-kde xdg-utils
 
 # Bluetoth, CUPS e Touchegg (Pacotes)
-sudo pacman -S --needed --noconfirm blueman bluez cups touchegg
+sudo pacman -S --needed --noconfirm blueman bluez cups
 
 # Bluetoth, CUPS e Touchegg (Serviços)
 sudo systemctl enable bluetooth cups touchegg
