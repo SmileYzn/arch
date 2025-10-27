@@ -22,7 +22,7 @@ sudo pacman -Syyu --needed --noconfirm
 sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector system-config-printer unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
-sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-xapp xdg-utils
+sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-gtk xdg-utils
 
 # Bluetoth, CUPS e Touchegg (Pacotes)
 sudo pacman -S --needed --noconfirm blueman bluez cups
@@ -61,7 +61,7 @@ sudo pacman -S --needed --noconfirm thunderbird thunderbird-i18n-pt-br
 sudo pacman -S --needed --noconfirm libreoffice-fresh libreoffice-fresh-pt-br
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm catfish dconf-editor drawing gcolor3 gigolo gnome-online-accounts gparted gthumb lightdm-gtk-greeter-settings mate-calc mpv mugshot orage peek seahorse simple-scan zeitgeist
+sudo pacman -S --needed --noconfirm catfish dconf-editor drawing gcolor3 gigolo gnome-online-accounts gparted gthumb lightdm-gtk-greeter-settings mate-calc mugshot orage parole peek seahorse simple-scan zeitgeist
 
 # GStreamer
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good
