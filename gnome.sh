@@ -27,9 +27,6 @@ sudo pacman -S --needed --noconfirm bluez cups touchegg
 # Bluetoth, CUPS e Touchegg (Serviços)
 sudo systemctl enable bluetooth cups touchegg
 
-# XORG e Wayland
-sudo pacman -S --needed --noconfirm xorg-apps xorg-xwayland numlockx wayland
-
 # NTFS, CIFS, GVFS, EXFAT
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
 
