@@ -55,7 +55,7 @@ sudo pacman -S --needed --noconfirm thunderbird thunderbird-i18n-pt-br
 sudo pacman -S --needed --noconfirm libreoffice-fresh libreoffice-fresh-pt-br
 
 # Aplicativos do KDE
-sudo pacman -S --needed --noconfirm dolphin-plugins filelight gwenview kcalc kcharselect kcolorchooser kfind kolourpaint kwalletmanager okular partitionmanager plasma-systemmonitor vlc
+sudo pacman -S --needed --noconfirm dolphin-plugins dragon filelight gwenview kcalc kcharselect kcolorchooser kfind kolourpaint kwalletmanager okular partitionmanager plasma-systemmonitor
 
 # Instalar YAY no modo binário via AUR
 git clone https://aur.archlinux.org/yay-bin.git
