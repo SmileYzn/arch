@@ -38,7 +38,7 @@ sudo fc-cache -f -v
 sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-theme adwaita-icon-theme-legacy
 
 # Nemo plugins
-sudo pacman -S --needed --noconfirm nemo nemo-audio-tab nemo-emblems nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share
+sudo pacman -S --needed --noconfirm nemo nemo-audio-tab nemo-compare nemo-emblems nemo-fileroller nemo-image-converter nemo-media-columns nemo-share
 
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
