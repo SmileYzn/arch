@@ -55,7 +55,7 @@ sudo pacman -S --needed --noconfirm thunderbird thunderbird-i18n-pt-br
 sudo pacman -S --needed --noconfirm libreoffice-fresh libreoffice-fresh-pt-br
 
 # GNOME Core Apps
-sudo pacman -S --needed --noconfirm baobab dconf-editor file-roller gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-disk-utility gnome-font-viewer gnome-online-accounts gnome-screenshot gnome-system-monitor loupe papers seahorse showtime simple-scan
+sudo pacman -S --needed --noconfirm baobab dconf-editor file-roller gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-disk-utility gnome-font-viewer gnome-online-accounts gnome-system-monitor loupe seahorse showtime simple-scan
 
 # Instalar o pacote YAY no modo binário
 git clone https://aur.archlinux.org/yay-bin.git
