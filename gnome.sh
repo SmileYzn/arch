@@ -101,15 +101,14 @@ xdg-user-dirs-update
 rm -rf Documents Music Pictures Public Templates Videos
 
 # Ocultar Atalhos
-#/usr/share/applications/bvnc.desktop
-#/usr/share/applications/qv4l2.desktop
-#/usr/share/applications/bssh.desktop
-#/usr/share/applications/avahi-discover.desktop
-#/usr/share/applications/java-java-openjdk.desktop
-#/usr/share/applications/qvidcap.desktop
-#/usr/share/applications/cups.desktop
-#/usr/share/applications/system-config-printer.desktop
-
+echo "NoDisplay=true" | sudo tee -a /usr/share/applications/bvnc.desktop
+echo "NoDisplay=true" | sudo tee -a /usr/share/applications/qv4l2.desktop
+echo "NoDisplay=true" | sudo tee -a /usr/share/applications/bssh.desktop
+echo "NoDisplay=true" | sudo tee -a /usr/share/applications/avahi-discover.desktop
+echo "NoDisplay=true" | sudo tee -a /usr/share/applications/java-java-openjdk.desktop
+echo "NoDisplay=true" | sudo tee -a /usr/share/applications/qvidcap.desktop
+echo "NoDisplay=true" | sudo tee -a /usr/share/applications/cups.desktop
+echo "NoDisplay=true" | sudo tee -a /usr/share/applications/system-config-printer.desktop
 
 # Fim
 exit
