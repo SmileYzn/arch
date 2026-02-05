@@ -19,10 +19,10 @@ cd /home/$USUARIO
 sudo pacman -Syyu --needed --noconfirm
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector system-config-printer unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpegthumbnailer git man power-profiles-daemon powertop reflector unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
-sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-lxqt xdg-utils
+sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-lxqt xdg-utils
 
 # CUPS (Pacote)
 sudo pacman -S --needed --noconfirm cups
@@ -43,7 +43,7 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 sudo fc-cache -f -v
 
 # Kvantum
-sudo pacman -S --needed --noconfirm kvantum kvantum-qt5
+sudo pacman -S --needed --noconfirm kvantum
 
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
