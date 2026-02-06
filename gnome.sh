@@ -101,21 +101,20 @@ xdg-user-dirs-update
 rm -rf Documents Music Pictures Public Templates Videos
 
 # Ocultar Atalhos (Arch System Apps)
-OCULTAR=
-(
-    "/usr/share/applications/bvnc.desktop"
-    "/usr/share/applications/qv4l2.desktop"
-    "/usr/share/applications/bssh.desktop"
-    "/usr/share/applications/avahi-discover.desktop"
-    "/usr/share/applications/qvidcap.desktop"
-    "/usr/share/applications/cups.desktop"
-    "/usr/share/applications/system-config-printer.desktop"
-    "/usr/share/applications/java-java-openjdk.desktop"
-)
+OCULTAR=(
+    "/usr/share/applications/bvnc.desktop" \
+    "/usr/share/applications/qv4l2.desktop" \
+    "/usr/share/applications/bssh.desktop" \
+    "/usr/share/applications/avahi-discover.desktop" \
+    "/usr/share/applications/qvidcap.desktop" \
+    "/usr/share/applications/cups.desktop" \
+    "/usr/share/applications/system-config-printer.desktop")
 
 # Loop through each element
 for CAMINHO in "${OCULTAR[@]}"; do
-  sudo [ -f "$CAMINHO" ] && sudo echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
+    if [ -f "$FILE" ]; then
+        echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
+    fi
 done
 
 # Fim
