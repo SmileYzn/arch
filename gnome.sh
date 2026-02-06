@@ -55,7 +55,7 @@ sudo pacman -S --needed --noconfirm thunderbird thunderbird-i18n-pt-br
 sudo pacman -S --needed --noconfirm libreoffice-fresh libreoffice-fresh-pt-br
 
 # GNOME Core Apps
-sudo pacman -S --needed --noconfirm baobab dconf-editor decibels file-roller gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-disk-utility gnome-font-viewer gnome-online-accounts gnome-system-monitor loupe papers seahorse showtime simple-scan
+sudo pacman -S --needed --noconfirm adw-gtk-theme baobab dconf-editor decibels file-roller gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-disk-utility gnome-font-viewer gnome-online-accounts gnome-system-monitor loupe papers seahorse showtime simple-scan
 
 # Instalar o pacote YAY no modo binário
 git clone https://aur.archlinux.org/yay-bin.git
@@ -100,15 +100,24 @@ xdg-user-dirs-update
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
 
-# Ocultar Atalhos
-echo "NoDisplay=true" | sudo tee -a /usr/share/applications/bvnc.desktop
-echo "NoDisplay=true" | sudo tee -a /usr/share/applications/qv4l2.desktop
-echo "NoDisplay=true" | sudo tee -a /usr/share/applications/bssh.desktop
-echo "NoDisplay=true" | sudo tee -a /usr/share/applications/avahi-discover.desktop
-echo "NoDisplay=true" | sudo tee -a /usr/share/applications/java-java-openjdk.desktop
-echo "NoDisplay=true" | sudo tee -a /usr/share/applications/qvidcap.desktop
-echo "NoDisplay=true" | sudo tee -a /usr/share/applications/cups.desktop
-echo "NoDisplay=true" | sudo tee -a /usr/share/applications/system-config-printer.desktop
+# Ocultar Atalhos (Arch System Apps)
+OCULTAR=
+(
+    "/usr/share/applications/bvnc.desktop"
+    "/usr/share/applications/qv4l2.desktop"
+    "/usr/share/applications/bssh.desktop"
+    "/usr/share/applications/avahi-discover.desktop"
+    "/usr/share/applications/qvidcap.desktop"
+    "/usr/share/applications/cups.desktop"
+    "/usr/share/applications/system-config-printer.desktop"
+    "/usr/share/applications/java-java-openjdk.desktop"
+)
+
+# Loop through each element
+for CAMINHO in "${OCULTAR[@]}"; do
+  echo "$CAMINHO"
+  [ -f "$CAMINHO" ] && echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
+done
 
 # Fim
 exit
