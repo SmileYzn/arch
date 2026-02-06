@@ -115,8 +115,7 @@ OCULTAR=
 
 # Loop through each element
 for CAMINHO in "${OCULTAR[@]}"; do
-  echo "$CAMINHO"
-  [ -f "$CAMINHO" ] && echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
+  [ -f "$CAMINHO" ] && sudo echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
 done
 
 # Fim
