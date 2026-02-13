@@ -31,7 +31,7 @@ sudo pacman -S --needed --noconfirm blueman bluez cups
 sudo systemctl enable bluetooth cups
 
 # Xorg e Wayland
-sudo pacman -S --needed --noconfirm numlockx xorg-apps
+sudo pacman -S --needed --noconfirm numlockx wayland xiccd xorg-apps xorg-xwayland
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
