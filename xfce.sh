@@ -54,17 +54,11 @@ sudo pacman -S --needed --noconfirm thunar-media-tags-plugin thunar-archive-plug
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
-# Thunderbird
-sudo pacman -S --needed --noconfirm thunderbird thunderbird-i18n-pt-br
-
-# Libreoffice
-sudo pacman -S --needed --noconfirm libreoffice-fresh libreoffice-fresh-pt-br
-
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm catfish dconf-editor drawing gcolor3 gigolo gnome-online-accounts gparted gthumb lightdm-gtk-greeter-settings mate-calc mugshot orage parole peek seahorse simple-scan zeitgeist
+sudo pacman -S --needed --noconfirm catfish dconf-editor drawing galculator gcolor3 gigolo gparted gthumb lightdm-gtk-greeter-settings mugshot orage parole peek seahorse simple-scan zeitgeist
 
 # GStreamer
-sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good
+sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
 
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
@@ -72,9 +66,6 @@ cd yay-bin
 makepkg -si --needed --noconfirm
 cd ..
 rm -rf yay-bin
-
-# GNOME Online Accounts GTK, MS Fonts
-yay -S --needed --noconfirm gnome-online-accounts-gtk ttf-ms-fonts
 
 # Limpar pacotes
 sudo pacman -R --noconfirm htop vim vim-runtime
@@ -112,6 +103,22 @@ xdg-user-dirs-update
 
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
+
+# Ocultar Atalhos (Arch System Apps)
+OCULTAR=(
+    "/usr/share/applications/bvnc.desktop" \
+    "/usr/share/applications/qv4l2.desktop" \
+    "/usr/share/applications/bssh.desktop" \
+    "/usr/share/applications/avahi-discover.desktop" \
+    "/usr/share/applications/qvidcap.desktop" \
+    "/usr/share/applications/cups.desktop")
+
+# Loop through each element
+for CAMINHO in "${OCULTAR[@]}"; do
+    if [ -f "$FILE" ]; then
+        echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
+    fi
+done
 
 # Fim
 exit
