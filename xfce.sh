@@ -31,7 +31,7 @@ sudo pacman -S --needed --noconfirm blueman bluez cups
 sudo systemctl enable bluetooth cups
 
 # Xorg e Wayland
-sudo pacman -S --needed --noconfirm labwc numlockx wayland xiccd xorg-apps xorg-xwayland
+sudo pacman -S --needed --noconfirm numlockx xorg-apps
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
@@ -55,7 +55,7 @@ sudo pacman -S --needed --noconfirm thunar-media-tags-plugin thunar-archive-plug
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm catfish dconf-editor drawing galculator gcolor3 gigolo gparted gthumb lightdm-gtk-greeter-settings mugshot orage parole peek seahorse simple-scan zeitgeist
+sudo pacman -S --needed --noconfirm catfish dconf-editor drawing gcolor3 gigolo gparted gthumb lightdm-gtk-greeter-settings mate-calc mugshot orage parole peek seahorse simple-scan zeitgeist
 
 # GStreamer
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
