@@ -14,7 +14,7 @@ fi
 sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector system-config-printer unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
-sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-xapp xdg-utils
+sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-gtk xdg-utils
 
 # Bluetoth, CUPS e Touchegg (Pacotes)
 sudo pacman -S --needed --noconfirm blueman bluez cups touchegg
@@ -23,7 +23,7 @@ sudo pacman -S --needed --noconfirm blueman bluez cups touchegg
 sudo systemctl enable bluetooth cups touchegg
 
 # Xorg e Wayland
-sudo pacman -S --needed --noconfirm xorg-apps xorg-xwayland numlockx wayland
+sudo pacman -S --needed --noconfirm labwc numlockx wayland xorg-apps xorg-xwayland
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
@@ -34,32 +34,14 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
 
-# Adwaita
-sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-theme adwaita-icon-theme-legacy
-
 # Nemo plugins
 sudo pacman -S --needed --noconfirm nemo nemo-audio-tab nemo-emblems nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share
 
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
-# Thunderbird
-sudo pacman -S --needed --noconfirm thunderbird thunderbird-i18n-pt-br
-
-# Libreoffice
-sudo pacman -S --needed --noconfirm libreoffice-fresh libreoffice-fresh-pt-br
-
-# Aplicativos GNOME
-sudo pacman -S --needed --noconfirm gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-disk-utility gnome-font-viewer gnome-online-accounts gnome-screenshot gnome-system-monitor
-
-# Aplicativos GNOME
-sudo pacman -S --needed --noconfirm baobab dconf-editor file-roller showtime seahorse simple-scan
-
-# GStreamer
-sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good
-
-# Drawing, peek, gThumb
-sudo pacman -S --needed --noconfirm drawing peek gthumb
+# Aplicativos Extra
+sudo pacman -S --needed --noconfirm file-roller gnome-screenshot gthumb mate-calc mpv resources seahorse
 
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
@@ -68,8 +50,8 @@ makepkg -si --needed --noconfirm
 cd ..
 rm -rf yay-bin
 
-# GNOME Online Accounts, Bulky, GTK, Lightdm Settings, MS Fonts
-yay -S --needed --noconfirm bulky gnome-online-accounts-gtk lightdm-settings ttf-ms-fonts
+# GNOME Bulky, GTK, Lightdm Settings
+yay -S --needed --noconfirm bulky lightdm-settings
 
 # Limpar Pacotes
 sudo pacman -R --noconfirm engrampa htop vim vim-runtime
@@ -104,6 +86,26 @@ xdg-user-dirs-update --force --set VIDEOS /home/$USUARIO/Vídeos
 
 # Atualizar pastas padrão
 xdg-user-dirs-update
+
+# Remover pastas antigas
+rm -rf Documents Music Pictures Public Templates Videos
+
+# Ocultar Atalhos (Arch System Apps)
+OCULTAR=(
+    "/usr/share/applications/bvnc.desktop" \
+    "/usr/share/applications/qv4l2.desktop" \
+    "/usr/share/applications/bssh.desktop" \
+    "/usr/share/applications/avahi-discover.desktop" \
+    "/usr/share/applications/qvidcap.desktop" \
+    "/usr/share/applications/cups.desktop" \
+    "/usr/share/applications/system-config-printer.desktop")
+
+# Loop through each element
+for CAMINHO in "${OCULTAR[@]}"; do
+    if [ -f "$FILE" ]; then
+        echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
+    fi
+done
 
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
