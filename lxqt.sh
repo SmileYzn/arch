@@ -95,6 +95,23 @@ xdg-user-dirs-update
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
 
+# Ocultar Atalhos (Arch System Apps)
+OCULTAR=(
+    "/usr/share/applications/bvnc.desktop" \
+    "/usr/share/applications/qv4l2.desktop" \
+    "/usr/share/applications/bssh.desktop" \
+    "/usr/share/applications/avahi-discover.desktop" \
+    "/usr/share/applications/qvidcap.desktop" \
+    "/usr/share/applications/cups.desktop" \
+    "/usr/share/applications/system-config-printer.desktop")
+
+# Loop through each element
+for CAMINHO in "${OCULTAR[@]}"; do
+    if [ -f "$FILE" ]; then
+        echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
+    fi
+done
+
 # Fim
 exit
 
