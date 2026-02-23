@@ -49,7 +49,7 @@ sudo pacman -S --needed --noconfirm kvantum
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm breeze breeze5 breeze-gtk breeze-icons featherpad libstatgrab libsysstat lm_sensors network-manager-applet pavucontrol-qt print-manager vlc
+sudo pacman -S --needed --noconfirm breeze breeze5 breeze-gtk breeze-icons featherpad libstatgrab libsysstat lm_sensors lximage-qt network-manager-applet pavucontrol-qt print-manager qpdfview vlc
 
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
