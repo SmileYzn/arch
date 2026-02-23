@@ -31,7 +31,7 @@ sudo pacman -S --needed --noconfirm cups
 sudo systemctl enable cups
 
 # Wayland
-sudo pacman -S --needed --noconfirm labwc wayland xorg-xwayland
+sudo pacman -S --needed --noconfirm labwc lxqt-wayland-session wayland xorg-xwayland
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
