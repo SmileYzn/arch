@@ -59,7 +59,7 @@ sudo pacman -S --needed --noconfirm gnome-backgrounds gnome-calculator gnome-cal
 sudo pacman -S --needed --noconfirm baobab dconf-editor file-roller showtime seahorse simple-scan
 
 # GStreamer
-sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good
+sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
 
 # Drawing, peek, gThumb
 sudo pacman -S --needed --noconfirm drawing peek gthumb
