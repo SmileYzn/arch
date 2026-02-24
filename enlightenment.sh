@@ -42,6 +42,11 @@ sudo pacman -S --needed --noconfirm ecrire efl-docs ephoto evisum rage terminolo
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
+# PKGFILE (Retorno de comando não encontrado)
+sudo pacman -S --needed --noconfirm pkgfile
+sudo pkgfile --update
+echo "source /usr/share/doc/pkgfile/command-not-found.bash" >> ~/.bashrc
+
 # Instalar o pacote YAY no modo binário
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
@@ -84,23 +89,6 @@ xdg-user-dirs-update
 
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
-
-# Ocultar Atalhos (Arch System Apps)
-OCULTAR=(
-    "/usr/share/applications/bvnc.desktop" \
-    "/usr/share/applications/qv4l2.desktop" \
-    "/usr/share/applications/bssh.desktop" \
-    "/usr/share/applications/avahi-discover.desktop" \
-    "/usr/share/applications/qvidcap.desktop" \
-    "/usr/share/applications/cups.desktop" \
-    "/usr/share/applications/system-config-printer.desktop")
-
-# Loop through each element
-for CAMINHO in "${OCULTAR[@]}"; do
-    if [ -f "$FILE" ]; then
-        echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
-    fi
-done
 
 # Fim
 exit
