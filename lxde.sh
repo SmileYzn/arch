@@ -46,10 +46,13 @@ sudo fc-cache -f -v
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm drawing galculator gcolor3 gthumb lightdm-gtk-greeter-settings seahorse simple-scan
+sudo pacman -S --needed --noconfirm drawing galculator gcolor3 gthumb seahorse simple-scan xarchiver
 
 # GStreamer
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
+
+# LXDE
+sudo pacman -S --needed --noconfirm iso-codes lxde wireless_tools
 
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
