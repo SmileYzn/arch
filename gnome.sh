@@ -48,14 +48,13 @@ sudo pacman -S --needed --noconfirm nautilus-image-converter nautilus-share seah
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
-# Thunderbird
-sudo pacman -S --needed --noconfirm thunderbird thunderbird-i18n-pt-br
-
-# Libreoffice
-sudo pacman -S --needed --noconfirm libreoffice-fresh libreoffice-fresh-pt-br
-
 # GNOME Core Apps
 sudo pacman -S --needed --noconfirm adw-gtk-theme baobab dconf-editor decibels file-roller gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-disk-utility gnome-font-viewer gnome-online-accounts gnome-system-monitor loupe papers seahorse showtime simple-scan
+
+# PKGFILE (Retorno de comando não encontrado)
+sudo pacman -S --needed --noconfirm pkgfile
+sudo pkgfile --update
+echo "source /usr/share/doc/pkgfile/command-not-found.bash" >> ~/.bashrc
 
 # Instalar o pacote YAY no modo binário
 git clone https://aur.archlinux.org/yay-bin.git
@@ -99,23 +98,6 @@ xdg-user-dirs-update
 
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
-
-# Ocultar Atalhos (Arch System Apps)
-OCULTAR=(
-    "/usr/share/applications/bvnc.desktop" \
-    "/usr/share/applications/qv4l2.desktop" \
-    "/usr/share/applications/bssh.desktop" \
-    "/usr/share/applications/avahi-discover.desktop" \
-    "/usr/share/applications/qvidcap.desktop" \
-    "/usr/share/applications/cups.desktop" \
-    "/usr/share/applications/system-config-printer.desktop")
-
-# Loop through each element
-for CAMINHO in "${OCULTAR[@]}"; do
-    if [ -f "$FILE" ]; then
-        echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
-    fi
-done
 
 # Fim
 exit
