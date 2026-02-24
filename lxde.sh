@@ -45,9 +45,6 @@ sudo fc-cache -f -v
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
-# Adwaita
-sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-theme adwaita-icon-theme-legacy
-
 # Pacotes Extras
 sudo pacman -S --needed --noconfirm drawing galculator gcolor3 gthumb lightdm-gtk-greeter-settings seahorse simple-scan
 
@@ -107,12 +104,40 @@ OCULTAR=(
     "/usr/share/applications/qvidcap.desktop" \
     "/usr/share/applications/cups.desktop")
 
-# Loop through each element
+# Loop
 for CAMINHO in "${OCULTAR[@]}"; do
     if [ -f "$FILE" ]; then
         echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
     fi
 done
+
+# Clonar Fluent GTK Theme && Fluent Icon Theme
+git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
+git clone https://github.com/vinceliuice/Fluent-icon-theme.git
+
+# Abrir
+cd Fluent-gtk-theme
+
+# Parse SASSC
+sh parse-sass.sh
+
+# Instalar e linkar com libadwaita
+sudo sh install.sh --icon arch --size standard --tweaks solid
+sh install.sh --icon arch --size standard --tweaks solid
+sh install.sh --icon arch --size standard --tweaks solid -c dark -l
+
+# Voltar e abrir Fluent Icon Theme
+cd ..
+cd Fluent-icon-theme
+
+# Instalar Icones
+sudo sh install.sh
+
+# Abrir Cursors
+cd cursors
+
+# Instalar Cursores
+sudo sh install.sh
 
 # Fim
 exit
