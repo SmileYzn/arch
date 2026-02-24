@@ -46,13 +46,13 @@ sudo fc-cache -f -v
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm drawing galculator gcolor3 gthumb seahorse simple-scan xarchiver
+sudo pacman -S --needed --noconfirm drawing galculator gcolor3 gnome-screenshot gthumb l3afpad mousepad mpv pavucontrol seahorse simple-scan xarchiver
 
 # GStreamer
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
 
 # LXDE
-sudo pacman -S --needed --noconfirm iso-codes lxde pwvucontrol
+sudo pacman -S --needed --noconfirm iso-codes lxde notification-daemon pavucontrol
 
 # Lightdm
 sudo pacman -S --needed --noconfirm lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
