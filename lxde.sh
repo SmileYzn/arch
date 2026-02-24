@@ -54,6 +54,14 @@ sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plu
 # LXDE
 sudo pacman -S --needed --noconfirm iso-codes lxde wireless_tools
 
+# Lightdm
+sudo pacman -S --needed --noconfirm lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+sudo systemctl enable lightdm --force
+
+# Remove LXDM
+sudo systemctl disable lxdm --force
+sudo pacman -Rnsu lxdm
+
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
