@@ -60,7 +60,7 @@ sudo systemctl enable lightdm --force
 
 # Remove LXDM
 sudo systemctl disable lxdm --force
-sudo pacman -Rnsu lxdm
+sudo pacman -Rnsu --noconfirm lxdm
 
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
