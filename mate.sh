@@ -63,6 +63,11 @@ sudo pacman -S --needed --noconfirm dconf-editor drawing gcolor3 gigolo gnome-on
 # GStreamer
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good
 
+# PKGFILE (Retorno de comando não encontrado)
+sudo pacman -S --needed --noconfirm pkgfile
+sudo pkgfile --update
+echo "source /usr/share/doc/pkgfile/command-not-found.bash" >> ~/.bashrc
+
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
