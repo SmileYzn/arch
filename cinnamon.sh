@@ -43,12 +43,6 @@ sudo pacman -S --needed --noconfirm nemo nemo-audio-tab nemo-compare nemo-emblem
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
-# Thunderbird
-sudo pacman -S --needed --noconfirm thunderbird thunderbird-i18n-pt-br
-
-# Libreoffice
-sudo pacman -S --needed --noconfirm libreoffice-fresh libreoffice-fresh-pt-br
-
 # Cinnamon Translations, XAPPS
 sudo pacman -S --needed --noconfirm cinnamon-translations xapp xed xreader
 
@@ -63,6 +57,11 @@ sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plu
 
 # Drawing, peek, gThumb
 sudo pacman -S --needed --noconfirm drawing peek gthumb
+
+# PKGFILE (Retorno de comando não encontrado)
+sudo pacman -S --needed --noconfirm pkgfile
+sudo pkgfile --update
+echo "source /usr/share/doc/pkgfile/command-not-found.bash" >> ~/.bashrc
 
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
