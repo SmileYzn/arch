@@ -1,2 +1,3 @@
-# arch
-Arch Linux Post Install Scripts
+# Arch Linux
+Scripts de pós instalação do Arch Linux
+
