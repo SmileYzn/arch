@@ -52,7 +52,7 @@ sudo pacman -S --needed --noconfirm drawing galculator gcolor3 gthumb seahorse s
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
 
 # LXDE
-sudo pacman -S --needed --noconfirm iso-codes lxde wireless_tools
+sudo pacman -S --needed --noconfirm iso-codes lxde pwvucontrol
 
 # Lightdm
 sudo pacman -S --needed --noconfirm lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
