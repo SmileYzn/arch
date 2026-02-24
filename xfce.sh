@@ -37,7 +37,7 @@ sudo pacman -S --needed --noconfirm numlockx wayland xiccd xorg-apps xorg-xwayla
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
 
 # Fontes adicionais
-sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-droid ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
+sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
 
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
@@ -68,7 +68,7 @@ cd ..
 rm -rf yay-bin
 
 # Limpar pacotes
-sudo pacman -R --noconfirm htop vim vim-runtime
+sudo pacman -Rnscu --noconfirm htop vim vim-runtime
 
 # Limpar dependências
 sudo pacman -Rcs --noconfirm $(pacman -Qdtq)
@@ -119,6 +119,45 @@ for CAMINHO in "${OCULTAR[@]}"; do
         echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
     fi
 done
+
+
+# Clonar Fluent GTK Theme && Fluent Icon Theme
+git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
+git clone https://github.com/vinceliuice/Fluent-icon-theme.git
+
+# Abrir
+cd Fluent-gtk-theme
+
+# Parse SASSC
+sh parse-sass.sh
+
+# Instalar e linkar com libadwaita
+sudo sh install.sh --icon arch --size standard --tweaks solid
+sh install.sh --icon arch --size standard --tweaks solid
+sh install.sh --icon arch --size standard --tweaks solid -c dark -l
+
+# Voltar e abrir Fluent Icon Theme
+cd ..
+cd Fluent-icon-theme
+
+# Instalar Icones
+sudo sh install.sh
+
+# Abrir Cursors
+cd cursors
+
+# Instalar Cursores
+sudo sh install.sh
+
+# Limpar Arquivos
+cd /home/$USUARIO
+
+# Remover instalação do tema
+rm -rf Fluent-gtk-theme
+rm -rf Fluent-icon-theme
+
+# Limpar histórico
+history -c && > ~/.bash_history
 
 # Fim
 exit
