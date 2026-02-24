@@ -60,6 +60,11 @@ sudo pacman -S --needed --noconfirm catfish dconf-editor drawing gcolor3 gigolo 
 # GStreamer
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
 
+# PKGFILE (Retorno de comando não encontrado)
+sudo pacman -S --needed --noconfirm pkgfile
+sudo pkgfile --update
+echo "source /usr/share/doc/pkgfile/command-not-found.bash" >> ~/.bashrc
+
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
@@ -103,58 +108,6 @@ xdg-user-dirs-update
 
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
-
-# Ocultar Atalhos (Arch System Apps)
-OCULTAR=(
-    "/usr/share/applications/bvnc.desktop" \
-    "/usr/share/applications/qv4l2.desktop" \
-    "/usr/share/applications/bssh.desktop" \
-    "/usr/share/applications/avahi-discover.desktop" \
-    "/usr/share/applications/qvidcap.desktop" \
-    "/usr/share/applications/cups.desktop")
-
-# Loop through each element
-for CAMINHO in "${OCULTAR[@]}"; do
-    if [ -f "$FILE" ]; then
-        echo "NoDisplay=true" | sudo tee -a "$CAMINHO"
-    fi
-done
-
-
-# Clonar Fluent GTK Theme && Fluent Icon Theme
-git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
-git clone https://github.com/vinceliuice/Fluent-icon-theme.git
-
-# Abrir
-cd Fluent-gtk-theme
-
-# Parse SASSC
-sh parse-sass.sh
-
-# Instalar e linkar com libadwaita
-sudo sh install.sh --icon arch --size standard --tweaks solid
-sh install.sh --icon arch --size standard --tweaks solid
-sh install.sh --icon arch --size standard --tweaks solid -c dark -l
-
-# Voltar e abrir Fluent Icon Theme
-cd ..
-cd Fluent-icon-theme
-
-# Instalar Icones
-sudo sh install.sh
-
-# Abrir Cursors
-cd cursors
-
-# Instalar Cursores
-sudo sh install.sh
-
-# Limpar Arquivos
-cd /home/$USUARIO
-
-# Remover instalação do tema
-rm -rf Fluent-gtk-theme
-rm -rf Fluent-icon-theme
 
 # Limpar histórico
 history -c && > ~/.bash_history
