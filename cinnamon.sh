@@ -11,25 +11,19 @@ if [[ $EUID -eq 0 ]]; then
 fi
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector system-config-printer unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-xapp xdg-utils
 
-# Bluetoth, CUPS e Touchegg (Pacotes)
-sudo pacman -S --needed --noconfirm blueman bluez cups touchegg
-
-# Bluetoth, CUPS e Touchegg (Serviços)
-sudo systemctl enable bluetooth cups touchegg
-
 # Xorg e Wayland
-sudo pacman -S --needed --noconfirm xorg-apps xorg-xwayland numlockx wayland
+sudo pacman -S --needed --noconfirm numlockx wayland xorg-apps xorg-xwayland
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
 
 # Fontes adicionais
-sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-droid ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
+sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
 
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
@@ -46,22 +40,20 @@ sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 # Cinnamon Translations, XAPPS
 sudo pacman -S --needed --noconfirm cinnamon-translations xapp xed xreader
 
-# Aplicativos GNOME
-sudo pacman -S --needed --noconfirm gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-disk-utility gnome-font-viewer gnome-online-accounts gnome-screenshot gnome-system-monitor
-
-# Aplicativos GNOME
-sudo pacman -S --needed --noconfirm baobab dconf-editor file-roller showtime seahorse simple-scan
+# Aplicativos Extras
+sudo pacman -S --needed --noconfirm celluloid file-roller gnome-calculator gnome-screenshot gnome-system-monitor gthumb seahorse simple-scan
 
 # GStreamer
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
-
-# Drawing, peek, gThumb
-sudo pacman -S --needed --noconfirm drawing peek gthumb
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
 sudo pkgfile --update
 echo "source /usr/share/doc/pkgfile/command-not-found.bash" >> ~/.bashrc
+
+# Touchegg (Pacote)
+sudo pacman -S --needed --noconfirm touchegg
+sudo systemctl enable touchegg
 
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
@@ -70,8 +62,8 @@ makepkg -si --needed --noconfirm
 cd ..
 rm -rf yay-bin
 
-# GNOME Online Accounts, Bulky, GTK, Lightdm Settings, MS Fonts
-yay -S --needed --noconfirm bulky gnome-online-accounts-gtk lightdm-settings ttf-ms-fonts
+# GNOME Online Accounts, Bulky, GTK, Lightdm Settings
+yay -S --needed --noconfirm bulky lightdm-settings
 
 # Limpar Pacotes
 sudo pacman -R --noconfirm engrampa htop vim vim-runtime
