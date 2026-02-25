@@ -35,10 +35,13 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 sudo fc-cache -f -v
 
 # Nemo plugins
-sudo pacman -S --needed --noconfirm nemo nemo-audio-tab nemo-emblems nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share
+sudo pacman -S --needed --noconfirm nemo nemo-audio-tab nemo-compare nemo-emblems nemo-fileroller nemo-image-converter nemo-media-columns nemo-share
 
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
+
+# GStreamer
+sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
 
 # Aplicativos Extra
 sudo pacman -S --needed --noconfirm file-roller gnome-screenshot gthumb mate-calc mpv resources seahorse
