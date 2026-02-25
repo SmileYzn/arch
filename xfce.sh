@@ -27,6 +27,10 @@ sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-
 # Xorg e Wayland
 sudo pacman -S --needed --noconfirm numlockx xiccd xorg-apps
 
+# Bluetooth
+sudo pacman -S --needed --noconfirm blueman bluez
+sudo systemctl enable bluetooth
+
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
 
