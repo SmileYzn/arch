@@ -19,19 +19,13 @@ cd /home/$USUARIO
 sudo pacman -Syyu --needed --noconfirm
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector system-config-printer unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-gtk xdg-utils
 
-# Bluetoth, CUPS e Touchegg (Pacotes)
-sudo pacman -S --needed --noconfirm blueman bluez cups
-
-# Bluetoth, CUPS e Touchegg (Serviços)
-sudo systemctl enable bluetooth cups
-
 # Xorg e Wayland
-sudo pacman -S --needed --noconfirm numlockx wayland xiccd xorg-apps xorg-xwayland
+sudo pacman -S --needed --noconfirm numlockx xiccd xorg-apps
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
@@ -42,9 +36,6 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
 
-# Adwaita
-sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-theme adwaita-icon-theme-legacy
-
 # XFCE4 Plugins
 sudo pacman -S --needed --noconfirm xfce4-goodies xfce4-calculator-plugin xfce4-datetime-plugin xfce4-docklike-plugin xfce4-generic-slider xfce4-mixer xfce4-panel-profiles xfce4-stopwatch-plugin xfce4-volumed-pulse xfce4-windowck-plugin
 
@@ -54,11 +45,11 @@ sudo pacman -S --needed --noconfirm thunar-media-tags-plugin thunar-archive-plug
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
-# Pacotes Extras
-sudo pacman -S --needed --noconfirm catfish dconf-editor drawing gcolor3 gigolo gparted gthumb lightdm-gtk-greeter-settings mate-calc mugshot orage parole peek seahorse simple-scan zeitgeist
-
 # GStreamer
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
+
+# Pacotes Extras
+sudo pacman -S --needed --noconfirm catfish dconf-editor drawing galculator gcolor3 gigolo gparted lightdm-gtk-greeter-settings mugshot orage parole ristretto seahorse simple-scan zeitgeist
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
