@@ -19,49 +19,38 @@ cd /home/$USUARIO
 sudo pacman -Syyu --needed --noconfirm
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector system-config-printer unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-gtk xdg-utils
 
-# Bluetoth, CUPS e Touchegg (Pacotes)
-sudo pacman -S --needed --noconfirm blueman bluez cups
-
-# Bluetoth, CUPS e Touchegg (Serviços)
-sudo systemctl enable bluetooth cups
-
 # Xorg e Wayland
-sudo pacman -S --needed --noconfirm numlockx wayland xiccd xorg-apps xorg-xwayland
+sudo pacman -S --needed --noconfirm numlockx xiccd xorg-apps
+
+# Bluetooth
+sudo pacman -S --needed --noconfirm blueman bluez
+sudo systemctl enable bluetooth
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
 
 # Fontes adicionais
-sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-droid ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
+sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
 
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
 
-# Adwaita
-sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-theme adwaita-icon-theme-legacy
-
 # CAJA
-sudo pacman -S --needed --noconfirm caja-extensions-common python-caja
+sudo pacman -S --needed --noconfirm caja-extensions-common
 
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
-# Thunderbird
-sudo pacman -S --needed --noconfirm thunderbird thunderbird-i18n-pt-br
-
-# Libreoffice
-sudo pacman -S --needed --noconfirm libreoffice-fresh libreoffice-fresh-pt-br
+# GStreamer
+sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm dconf-editor drawing gcolor3 gigolo gnome-online-accounts gparted gthumb lightdm-gtk-greeter-settings mpv mugshot peek seahorse simple-scan
-
-# GStreamer
-sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good
+sudo pacman -S --needed --noconfirm dconf-editor gcolor3 gigolo gparted lightdm-gtk-greeter-settings mpv mugshot seahorse simple-scan
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
@@ -76,10 +65,10 @@ cd ..
 rm -rf yay-bin
 
 # GNOME Online Accounts GTK, MS Fonts
-yay -S --needed --noconfirm gnome-online-accounts-gtk mate-menu mate-tweak ttf-ms-fonts
+yay -S --needed --noconfirm mate-menu mate-tweak
 
 # Limpar pacotes
-sudo pacman -R --noconfirm htop vim vim-runtime
+sudo pacman -Rnscu --noconfirm htop vim vim-runtime
 
 # Limpar dependências
 sudo pacman -Rcs --noconfirm $(pacman -Qdtq)
@@ -114,6 +103,9 @@ xdg-user-dirs-update
 
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
+
+# Limpar histórico
+history -c && > ~/.bash_history
 
 # Fim
 exit
