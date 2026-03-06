@@ -49,7 +49,7 @@ sudo pacman -S --needed --noconfirm nautilus-image-converter nautilus-share seah
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # GNOME Core Apps
-sudo pacman -S --needed --noconfirm adw-gtk-theme baobab dconf-editor decibels file-roller gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-disk-utility gnome-font-viewer gnome-online-accounts gnome-system-monitor loupe papers seahorse showtime simple-scan
+sudo pacman -S --needed --noconfirm adw-gtk-theme baobab dconf-editor decibels file-roller gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-disk-utility gnome-font-viewer gnome-online-accounts gnome-system-monitor loupe seahorse showtime simple-scan
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
@@ -64,7 +64,7 @@ cd ..
 rm -rf yay-bin
 
 # Remover Pacotes duplicados
-sudo pacman -R htop vim vim-runtime
+sudo pacman -R htop vim vim-runtime system-config-printer gnome-tour epiphany
 
 # Limpar dependências
 sudo pacman -Rcs $(pacman -Qdtq)
