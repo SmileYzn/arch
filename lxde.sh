@@ -59,7 +59,7 @@ sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-t
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm dconf-editor galculator gcolor3 gigolo gnome-screenshot gparted l3afpad mugshot mpv seahorse xarchiver
+sudo pacman -S --needed --noconfirm dconf-editor galculator gcolor3 gigolo gnome-screenshot gparted l3afpad mugshot mpv seahorse xarchiver xscreensaver
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
@@ -116,9 +116,8 @@ rm -rf Documents Music Pictures Public Templates Videos
 # Nano syntax highlighting
 echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
 
-# LXDE Panel
+# Configuração do LXDE Panel
 LXPANEL="/Td6WFoAAATm1rRGBMD8BYgQIQEWAAAAAAAAAFlrPSfgCAcC9F0AEYgKCCHMlGgedS3yj4gZAZo+EbH9bnvQzmht+lr00B61+5a14Byz7h8C5yN/5v5WjM1dPql+4E8p2WQTIXQjzztYOVwKj5wlnJQK/Z+bF+zHX4WlEnpThXhODmwwf2j0OdiIVEDJgamlNZQS41KbWPVwIaRLCz6F+krYbTlKi4EwG9v9CGXoNtNlXY4JSL3K9mVVe8iCewTR2QwKcotDwSvX3QAlX9oL1TPfe81kuTpnkR7fgfWyb/sygOIy/92X3GrEXDPOls630ndpS/col/omVTENeTbt60MvuJcLrODxjHQ3gaOwkXsTm5n8RmtFncNrIc20xDLY9VRXUW4UoUVvt5QagbzAvY8dL1WuICGIFrY5gDAU+SRjf2d7MV8l4YxUkAp6bulR7+DGNhXeCl6+mYmtoVDolIigvSCiA8dlYLv+hhd31RWiQ/9XnA2UDW1RGunYnNP/VzR0xzZUgbYRL/M5VHQ+OQ0qm7rcLNZWAE3v7y+9oK0SblAfi1Hiu2ooEsK6vj96sxp82rPJqweUzWVhY6Mbh2ArW9Mee2le0uEULE/VfFPzUPAD0482a3qPhXcVfMIh4bpAEeZ1iXJGtUeu/McLHE+C7Y31DzOSDuUOCbVRupscY9jUG4che6Se5gxLC4UAWzj4m6VreOEBvJAWz9qMiOp2xxEmyGL6/A3s0iw4yAaj+s1aL0GirgiKRxtGw2OS8ub/YKdNiSWkOnCZ1J7FQ4JmYzi8A4LKw/owMwoQCC5b2n/0Rn/SD1fENxzaA5FIWKOUlfLfu3lOgKFLP2YcL+oiC7UZ+VQ00YDJiXVOjZa9b+U8BBs5iVdSnilT/UNj5smpHVxajXOZqVowskVBueeEKMJrciKINBKxN7KRNFYswLDmFwsBXfjps/mg/b89slXd4pn6J2Hz3NwFa4YwCF1m5/gq94hIXHTUbsmxSb7hrcwAqb/FUbvP57HadD5SbJE3ZYt2L/nylHC3UQaiZy89zv4i7BgWJQgAAGN8UMTUZwtjAAGYBogQAAD3iOuJscRn+wIAAAAABFla"
-
-# Restaurar dados do painel
+mkdir -p /home/$USUARIO/.config/lxpanel/LXDE/panels
 echo "$LXPANEL" | base64 -d | unxz -c > /home/$USUARIO/.config/lxpanel/LXDE/panels/panel
 
