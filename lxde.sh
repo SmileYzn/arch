@@ -59,7 +59,7 @@ sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-t
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm dconf-editor galculator gcolor3 gigolo gnome-screenshot gparted l3afpad mugshot mpv seahorse xarchiver xscreensaver
+sudo pacman -S --needed --noconfirm dconf-editor galculator gcolor3 gigolo gnome-screenshot gparted l3afpad mugshot mpv seahorse xarchiver xpdf xscreensaver
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
