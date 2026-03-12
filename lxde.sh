@@ -66,7 +66,7 @@ sudo pacman -S --needed --noconfirm pkgfile
 sudo pkgfile --update
 echo "source /usr/share/doc/pkgfile/command-not-found.bash" >> ~/.bashrc
 
-# Habilitar otification Daemon
+# Habilitar notification Daemon
 sudo cp /usr/share/applications/notification-daemon.desktop /etc/xdg/autostart/
 
 # YAY (Arch User Repository)
