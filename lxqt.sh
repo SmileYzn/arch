@@ -19,25 +19,25 @@ cd /home/$USUARIO
 sudo pacman -Syyu --needed --noconfirm
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpegthumbnailer git man power-profiles-daemon powertop reflector unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpeg ffmpegthumbnailer git man nano-syntax-highlighting power-profiles-daemon powertop reflector udisks2 unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-lxqt xdg-utils
 
-# CUPS (Pacote)
-sudo pacman -S --needed --noconfirm cups
+# Xorg e Wayland
+sudo pacman -S --needed --noconfirm labwc lxqt-wayland-session numlockx wayland xiccd xorg-apps xorg-xinit xorg-xwayland
 
-# CUPS (Serviço)
-sudo systemctl enable cups
+# Bluetoth, CUPS e Touchegg (Pacotes)
+sudo pacman -S --needed --noconfirm blueman bluez cups touchegg
 
-# Wayland
-sudo pacman -S --needed --noconfirm labwc lxqt-wayland-session wayland xorg-xwayland
+# Bluetoth, CUPS e Touchegg (Serviços)
+sudo systemctl enable bluetooth cups touchegg
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
 
 # Fontes adicionais
-sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-droid ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
+sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
 
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
@@ -99,6 +99,9 @@ xdg-user-dirs-update
 
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
+
+# Nano syntax highlighting
+echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
 
 # Fim
 exit
