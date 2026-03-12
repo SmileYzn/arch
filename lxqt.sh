@@ -49,7 +49,7 @@ sudo pacman -S --needed --noconfirm kvantum
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm breeze breeze5 breeze-gtk breeze-icons featherpad libstatgrab libsysstat lm_sensors lximage-qt network-manager-applet pavucontrol-qt print-manager qpdfview vlc
+sudo pacman -S --needed --noconfirm breeze breeze5 breeze-gtk breeze-icons featherpad libstatgrab libsysstat lm_sensors lximage-qt network-manager-applet pavucontrol-qt print-manager qalculate-qt vlc
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
