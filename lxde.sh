@@ -32,10 +32,10 @@ sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-
 sudo pacman -S --needed --noconfirm numlockx xiccd xorg-apps xorg-xinit
 
 # Bluetoth, CUPS e Touchegg (Pacotes)
-sudo pacman -S --needed --noconfirm blueman bluez cups touchegg
+sudo pacman -S --needed --noconfirm blueman bluez cups
 
 # Bluetoth, CUPS e Touchegg (Serviços)
-sudo systemctl enable bluetooth cups touchegg
+sudo systemctl enable bluetooth cups
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
@@ -47,7 +47,7 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 sudo fc-cache -f -v
 
 # LXDE + LXDM
-sudo pacman -S --needed --noconfirm iso-codes libnotify lxde lxdm notification-daemon network-manager-applet pavucontrol simple-scan system-config-printer
+sudo pacman -S --needed --noconfirm iso-codes libnotify lxde lxdm notification-daemon network-manager-applet pavucontrol picom simple-scan system-config-printer
 
 # Ativar serviço LXDM
 sudo systemctl enable lxdm
