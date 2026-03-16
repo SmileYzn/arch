@@ -25,13 +25,7 @@ sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completio
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-lxqt xdg-utils
 
 # Xorg e Wayland
-sudo pacman -S --needed --noconfirm labwc lxqt-wayland-session numlockx wayland xiccd xorg-apps xorg-xinit xorg-xwayland
-
-# Bluetoth, CUPS e Touchegg (Pacotes)
-sudo pacman -S --needed --noconfirm blueman bluez cups touchegg
-
-# Bluetoth, CUPS e Touchegg (Serviços)
-sudo systemctl enable bluetooth cups touchegg
+sudo pacman -S --needed --noconfirm numlockx picom xiccd xorg-apps xorg-xinit
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
@@ -103,6 +97,9 @@ rm -rf Documents Music Pictures Public Templates Videos
 # Nano syntax highlighting
 echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
 
-# Fim
-exit
-
+# Configurar picom Compositor
+mkdir -p /home/$USUARIO/.config/picom/
+cp /etc/xdg/picom.conf /home/$USUARIO/.config/picom/picom.conf
+sed -i 's/shadow = true;/shadow = false;/g' /home/$USUARIO/.config/picom/picom.conf
+sed -i 's/fading = true;/fading = false;/g' /home/$USUARIO/.config/picom/picom.conf
+sed -i 's/frame-opacity = 0.9;/frame-opacity = 1.0;/g' /home/$USUARIO/.config/picom/picom.conf
