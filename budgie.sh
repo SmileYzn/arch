@@ -11,7 +11,7 @@ if [[ $EUID -eq 0 ]]; then
 fi
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector system-config-printer unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpeg ffmpegthumbnailer git man nano-syntax-highlighting power-profiles-daemon powertop reflector udisks2 unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-gtk xdg-utils
@@ -23,13 +23,13 @@ sudo pacman -S --needed --noconfirm blueman bluez cups touchegg
 sudo systemctl enable bluetooth cups touchegg
 
 # Xorg e Wayland
-sudo pacman -S --needed --noconfirm labwc numlockx wayland xorg-apps xorg-xwayland
+sudo pacman -S --needed --noconfirm labwc wayland
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
 
 # Fontes adicionais
-sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-droid ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
+sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
 
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
@@ -39,9 +39,6 @@ sudo pacman -S --needed --noconfirm nemo nemo-audio-tab nemo-compare nemo-emblem
 
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
-
-# GStreamer
-sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
 
 # Aplicativos Extra
 sudo pacman -S --needed --noconfirm file-roller gnome-screenshot gthumb mate-calc mpv resources seahorse
@@ -101,5 +98,3 @@ rm -rf Documents Music Pictures Public Templates Videos
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
 
-# Fim
-exit
