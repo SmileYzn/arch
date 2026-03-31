@@ -37,8 +37,8 @@ sudo pacman -S --needed --noconfirm blueman bluez cups
 # Bluetoth, CUPS e Touchegg (Serviços)
 sudo systemctl enable bluetooth cups
 
-# NTFS, CIFS, GVFS
-sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
+# CIFS, EXFAT, GVFS, NTFS
+sudo pacman -S --needed --noconfirm cifs-utils exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd ntfs-3g
 
 # Fontes adicionais
 sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
@@ -46,11 +46,12 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
 
-# LXDE + LXDM
-sudo pacman -S --needed --noconfirm iso-codes libnotify lxde lxdm notification-daemon network-manager-applet pavucontrol picom simple-scan system-config-printer
+# LXDE
+sudo pacman -S --needed --noconfirm iso-codes libnotify lxde notification-daemon network-manager-applet pavucontrol picom simple-scan system-config-printer
 
-# Ativar serviço LXDM
-sudo systemctl enable lxdm
+# LightDM GTK + Service
+sudo pacman -S --needed --noconfirm lightdm lightdm-gtk-greeter
+sudo systemctl enable lightdm
 
 # Adwaita
 sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-theme adwaita-icon-theme-legacy
@@ -128,3 +129,4 @@ sed -i 's/shadow = true;/shadow = false;/g' /home/$USUARIO/.config/picom/picom.c
 sed -i 's/fading = true;/fading = false;/g' /home/$USUARIO/.config/picom/picom.conf
 sed -i 's/frame-opacity = 0.9;/frame-opacity = 1.0;/g' /home/$USUARIO/.config/picom/picom.conf
 picom --daemon
+
