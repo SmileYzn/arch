@@ -19,7 +19,7 @@ cd /home/$USUARIO
 sudo pacman -Syyu --needed --noconfirm
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpegthumbnailer git man power-profiles-daemon powertop reflector unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpeg ffmpegthumbnailer git man nano-syntax-highlighting power-profiles-daemon powertop reflector udisks2 unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-gtk xdg-utils
@@ -31,8 +31,8 @@ sudo pacman -S --needed --noconfirm numlockx xiccd xorg-apps
 sudo pacman -S --needed --noconfirm blueman bluez
 sudo systemctl enable bluetooth
 
-# NTFS, CIFS, GVFS
-sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
+# CIFS, EXFAT, GVFS, NTFS
+sudo pacman -S --needed --noconfirm cifs-utils exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd ntfs-3g
 
 # Fontes adicionais
 sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
@@ -103,6 +103,9 @@ xdg-user-dirs-update
 
 # Remover pastas antigas
 rm -rf Documents Music Pictures Public Templates Videos
+
+# Nano syntax highlighting
+echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
 
 # Limpar histórico
 history -c && > ~/.bash_history
