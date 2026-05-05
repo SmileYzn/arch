@@ -32,7 +32,7 @@ sudo pacman -S --needed --noconfirm blueman bluez
 sudo systemctl enable bluetooth
 
 # CIFS, EXFAT, GVFS, NTFS
-sudo pacman -S --needed --noconfirm cifs-utils exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd ntfs-3g
+sudo pacman -S --needed --noconfirm cifs-utils exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd ntfs-3g
 
 # Fontes adicionais
 sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
@@ -41,7 +41,7 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 sudo fc-cache -f -v
 
 # XFCE4 Plugins
-sudo pacman -S --needed --noconfirm xfce4-goodies xfce4-calculator-plugin xfce4-datetime-plugin xfce4-docklike-plugin xfce4-generic-slider xfce4-mixer xfce4-panel-profiles xfce4-stopwatch-plugin xfce4-volumed-pulse xfce4-windowck-plugin
+sudo pacman -S --needed --noconfirm xfce4-goodies xfce4-calculator-plugin xfce4-docklike-plugin xfce4-generic-slider xfce4-mixer xfce4-panel-profiles xfce4-stopwatch-plugin xfce4-volumed-pulse xfce4-windowck-plugin
 
 # Thunar
 sudo pacman -S --needed --noconfirm thunar-media-tags-plugin thunar-archive-plugin thunar-shares-plugin thunar-volman
