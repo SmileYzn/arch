@@ -24,8 +24,11 @@ sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completio
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-lxqt xdg-utils
 
-# Xorg e Wayland
+# Xorg
 sudo pacman -S --needed --noconfirm numlockx picom xiccd xorg-apps xorg-xinit
+
+# Wayland
+sudo pacman -S needed --noconfirm labwc lxqt-wayland-session
 
 # NTFS, CIFS, GVFS
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
