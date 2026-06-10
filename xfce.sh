@@ -50,10 +50,10 @@ sudo pacman -S --needed --noconfirm thunar-media-tags-plugin thunar-archive-plug
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # GStreamer
-sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
+sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm catfish dconf-editor drawing galculator gcolor3 gigolo gparted lightdm-gtk-greeter-settings mugshot orage parole ristretto seahorse simple-scan zeitgeist
+sudo pacman -S --needed --noconfirm catfish dconf-editor drawing galculator gcolor3 gigolo gparted gthumb lightdm-gtk-greeter-settings mugshot orage parole seahorse simple-scan
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
@@ -68,7 +68,7 @@ cd ..
 rm -rf yay-bin
 
 # Limpar pacotes
-sudo pacman -Rnscu --noconfirm htop vim vim-runtime
+sudo pacman -R --noconfirm htop vim vim-runtime
 
 # Limpar dependências
 sudo pacman -Rcs --noconfirm $(pacman -Qdtq)
@@ -86,23 +86,24 @@ cd /home/$USUARIO
 xdg-user-dirs-update
 
 # Criar pastas
-mkdir Desktop Downloads Modelos Rede Documentos Músicas Imagens Vídeos
+mkdir Desktop Documentos Downloads Imagens Modelos Músicas Projetos Rede Vídeos
 
 # Alterar pastas
 xdg-user-dirs-update --force --set DESKTOP /home/$USUARIO/Desktop
-xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
-xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
-xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set DOCUMENTS /home/$USUARIO/Documentos
-xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
 xdg-user-dirs-update --force --set PICTURES /home/$USUARIO/Imagens
+xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
+xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set PROJECTS /home/$USUARIO/Projetos
+xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set VIDEOS /home/$USUARIO/Vídeos
 
 # Atualizar pastas padrão
 xdg-user-dirs-update
 
 # Remover pastas antigas
-rm -rf Documents Music Pictures Public Templates Videos
+rm -rf Documents Music Pictures Projects Public Templates Videos
 
 # Nano syntax highlighting
 echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
