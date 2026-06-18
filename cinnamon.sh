@@ -29,7 +29,7 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 sudo fc-cache -f -v
 
 # Adwaita
-sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-theme adwaita-icon-theme-legacy
+sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-theme
 
 # Nemo plugins
 sudo pacman -S --needed --noconfirm nemo nemo-audio-tab nemo-compare nemo-emblems nemo-fileroller nemo-image-converter nemo-media-columns nemo-share
@@ -37,23 +37,16 @@ sudo pacman -S --needed --noconfirm nemo nemo-audio-tab nemo-compare nemo-emblem
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
-# Cinnamon Translations, XAPPS
-sudo pacman -S --needed --noconfirm cinnamon-translations xapp xed xreader
-
-# Aplicativos Extras
-sudo pacman -S --needed --noconfirm celluloid file-roller gnome-calculator gnome-screenshot gnome-system-monitor gthumb seahorse simple-scan
-
 # GStreamer
-sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad
+sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
+
+# Extras, Cinnamon Apps, Translations
+sudo pacman -S --needed --noconfirm bulky celluloid cinnamon-translations file-roller gnome-calculator gnome-screenshot gnome-system-monitor gthumb seahorse simple-scan xapp xed xreader
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
 sudo pkgfile --update
 echo "source /usr/share/doc/pkgfile/command-not-found.bash" >> ~/.bashrc
-
-# Touchegg (Pacote)
-sudo pacman -S --needed --noconfirm touchegg
-sudo systemctl enable touchegg
 
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
@@ -62,13 +55,13 @@ makepkg -si --needed --noconfirm
 cd ..
 rm -rf yay-bin
 
-# GNOME Online Accounts, Bulky, GTK, Lightdm Settings
-yay -S --needed --noconfirm bulky lightdm-settings
+# Lightdm Settings
+yay -S --needed --noconfirm lightdm-settings
 
 # Limpar Pacotes
 sudo pacman -R --noconfirm engrampa htop vim vim-runtime
 
-# Limpar dependências
+# Limpar pacotes orfãos
 sudo pacman -Rcs --noconfirm $(pacman -Qdtq)
 
 # Adicionar grupo autologin
@@ -84,23 +77,30 @@ cd /home/$USUARIO
 xdg-user-dirs-update
 
 # Criar pastas
-mkdir Desktop Downloads Modelos Rede Documentos Músicas Imagens Vídeos
+mkdir Desktop Documentos Downloads Imagens Modelos Músicas Projetos Rede Vídeos
 
 # Alterar pastas
 xdg-user-dirs-update --force --set DESKTOP /home/$USUARIO/Desktop
-xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
-xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
-xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set DOCUMENTS /home/$USUARIO/Documentos
-xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
 xdg-user-dirs-update --force --set PICTURES /home/$USUARIO/Imagens
+xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
+xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set PROJECTS /home/$USUARIO/Projetos
+xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set VIDEOS /home/$USUARIO/Vídeos
 
 # Atualizar pastas padrão
 xdg-user-dirs-update
 
 # Remover pastas antigas
-rm -rf Documents Music Pictures Public Templates Videos
+rm -rf Documents Music Pictures Projects Public Templates Videos
+
+# Nano syntax highlighting
+echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
+
+# Limpar histórico
+history -c && > ~/.bash_history
 
 # Fim
 exit
