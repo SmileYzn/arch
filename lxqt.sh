@@ -25,7 +25,7 @@ sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completio
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-lxqt xdg-utils
 
 # Xorg
-sudo pacman -S --needed --noconfirm numlockx xiccd xorg-apps xorg-xinit
+sudo pacman -S --needed --noconfirm numlockx picom xiccd xorg-apps xorg-xinit
 
 # Wayland
 sudo pacman -S needed --noconfirm labwc lxqt-wayland-session
@@ -97,6 +97,13 @@ rm -rf Documents Music Pictures Projects Public Templates Videos
 
 # Nano syntax highlighting
 echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
+
+# Configurar picom Compositor
+mkdir -p /home/$USUARIO/.config/picom/
+cp /etc/xdg/picom.conf /home/$USUARIO/.config/picom/picom.conf
+sed -i 's/shadow = true;/shadow = false;/g' /home/$USUARIO/.config/picom/picom.conf
+sed -i 's/fading = true;/fading = false;/g' /home/$USUARIO/.config/picom/picom.conf
+sed -i 's/frame-opacity = 0.9;/frame-opacity = 1.0;/g' /home/$USUARIO/.config/picom/picom.conf
 
 # Limpar histórico
 history -c && > ~/.bash_history
