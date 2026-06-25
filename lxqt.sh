@@ -25,13 +25,13 @@ sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completio
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-lxqt xdg-utils
 
 # Xorg
-sudo pacman -S --needed --noconfirm numlockx picom xiccd xorg-apps xorg-xinit
+sudo pacman -S --needed --noconfirm numlockx xiccd xorg-apps xorg-xinit
 
 # Wayland
 sudo pacman -S needed --noconfirm labwc lxqt-wayland-session
 
-# NTFS, CIFS, GVFS
-sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
+# CIFS, EXFAT, GVFS, NTFS
+sudo pacman -S --needed --noconfirm cifs-utils exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd ntfs-3g
 
 # Fontes adicionais
 sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
@@ -39,14 +39,11 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
 
-# Kvantum
-sudo pacman -S --needed --noconfirm kvantum
-
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm breeze breeze5 breeze-gtk breeze-icons featherpad libstatgrab libsysstat lm_sensors lximage-qt network-manager-applet pavucontrol-qt print-manager qalculate-qt vlc
+sudo pacman -S --needed --noconfirm featherpad lm_sensors lximage-qt network-manager-applet pavucontrol-qt qalculate-qt vlc
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
@@ -79,30 +76,30 @@ cd /home/$USUARIO
 xdg-user-dirs-update
 
 # Criar pastas
-mkdir Desktop Downloads Modelos Rede Documentos Músicas Imagens Vídeos
+mkdir Desktop Documentos Downloads Imagens Modelos Músicas Projetos Rede Vídeos
 
 # Alterar pastas
 xdg-user-dirs-update --force --set DESKTOP /home/$USUARIO/Desktop
-xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
-xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
-xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set DOCUMENTS /home/$USUARIO/Documentos
-xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
 xdg-user-dirs-update --force --set PICTURES /home/$USUARIO/Imagens
+xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
+xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set PROJECTS /home/$USUARIO/Projetos
+xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set VIDEOS /home/$USUARIO/Vídeos
 
 # Atualizar pastas padrão
 xdg-user-dirs-update
 
 # Remover pastas antigas
-rm -rf Documents Music Pictures Public Templates Videos
+rm -rf Documents Music Pictures Projects Public Templates Videos
 
 # Nano syntax highlighting
 echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
 
-# Configurar picom Compositor
-mkdir -p /home/$USUARIO/.config/picom/
-cp /etc/xdg/picom.conf /home/$USUARIO/.config/picom/picom.conf
-sed -i 's/shadow = true;/shadow = false;/g' /home/$USUARIO/.config/picom/picom.conf
-sed -i 's/fading = true;/fading = false;/g' /home/$USUARIO/.config/picom/picom.conf
-sed -i 's/frame-opacity = 0.9;/frame-opacity = 1.0;/g' /home/$USUARIO/.config/picom/picom.conf
+# Limpar histórico
+history -c && > ~/.bash_history
+
+# Fim
+exit
