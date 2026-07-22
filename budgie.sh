@@ -25,8 +25,8 @@ sudo systemctl enable bluetooth cups touchegg
 # Xorg e Wayland
 sudo pacman -S --needed --noconfirm labwc wayland
 
-# NTFS, CIFS, GVFS, EXFAT
-sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
+# CIFS, EXFAT, GVFS, NTFS
+sudo pacman -S --needed --noconfirm cifs-utils exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd ntfs-3g
 
 # Fontes adicionais
 sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
@@ -39,6 +39,9 @@ sudo pacman -S --needed --noconfirm nemo nemo-audio-tab nemo-compare nemo-emblem
 
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
+
+# GStreamer
+sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 # Aplicativos Extra
 sudo pacman -S --needed --noconfirm file-roller gnome-screenshot gthumb mate-calc mpv resources seahorse
@@ -77,24 +80,31 @@ cd /home/$USUARIO
 xdg-user-dirs-update
 
 # Criar pastas
-mkdir Desktop Downloads Modelos Rede Documentos Músicas Imagens Vídeos
+mkdir Desktop Documentos Downloads Imagens Modelos Músicas Projetos Rede Vídeos
 
 # Alterar pastas
 xdg-user-dirs-update --force --set DESKTOP /home/$USUARIO/Desktop
-xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
-xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
-xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set DOCUMENTS /home/$USUARIO/Documentos
-xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
 xdg-user-dirs-update --force --set PICTURES /home/$USUARIO/Imagens
+xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
+xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set PROJECTS /home/$USUARIO/Projetos
+xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set VIDEOS /home/$USUARIO/Vídeos
 
 # Atualizar pastas padrão
 xdg-user-dirs-update
 
 # Remover pastas antigas
-rm -rf Documents Music Pictures Public Templates Videos
+rm -rf Documents Music Pictures Projects Public Templates Videos
 
-# Remover pastas antigas
-rm -rf Documents Music Pictures Public Templates Videos
+# Nano syntax highlighting
+echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
+
+# Limpar histórico
+history -c && > ~/.bash_history
+
+# Fim
+exit
 
