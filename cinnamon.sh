@@ -16,8 +16,8 @@ sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completio
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-xapp xdg-utils
 
-# Xorg e Wayland
-sudo pacman -S --needed --noconfirm numlockx wayland xorg-apps xorg-xwayland
+# Xorg
+sudo pacman -S --needed --noconfirm numlockx
 
 # CIFS, EXFAT, GVFS, NTFS
 sudo pacman -S --needed --noconfirm cifs-utils exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd ntfs-3g
@@ -41,7 +41,7 @@ sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 # Extras, Cinnamon Apps, Translations
-sudo pacman -S --needed --noconfirm bulky celluloid cinnamon-translations file-roller gnome-calculator gnome-screenshot gnome-system-monitor gthumb seahorse simple-scan xapp xed xreader
+sudo pacman -S --needed --noconfirm bulky cinnamon-translations file-roller gnome-calc gnome-screenshot gnome-system-monitor gthumb mpv seahorse xapp xed xreader
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
