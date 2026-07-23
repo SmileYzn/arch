@@ -16,12 +16,6 @@ sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completio
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-gtk xdg-utils
 
-# Bluetoth, CUPS e Touchegg (Pacotes)
-sudo pacman -S --needed --noconfirm blueman bluez cups touchegg
-
-# Bluetoth, CUPS e Touchegg (Serviços)
-sudo systemctl enable bluetooth cups touchegg
-
 # Xorg e Wayland
 sudo pacman -S --needed --noconfirm labwc wayland
 
@@ -59,7 +53,7 @@ cd ..
 rm -rf yay-bin
 
 # GNOME Bulky, GTK, Lightdm Settings
-yay -S --needed --noconfirm bulky lightdm-settings
+yay -S --needed --noconfirm lightdm-settings
 
 # Limpar Pacotes
 sudo pacman -R --noconfirm engrampa htop vim vim-runtime
@@ -107,4 +101,3 @@ history -c && > ~/.bash_history
 
 # Fim
 exit
-
