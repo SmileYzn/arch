@@ -23,19 +23,13 @@ cd /home/$USUARIO
 sudo pacman -Syyu --needed --noconfirm
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch ffmpeg ffmpegthumbnailer git man nano-syntax-highlighting power-profiles-daemon powertop reflector udisks2 unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpeg ffmpegthumbnailer git man nano-syntax-highlighting power-profiles-daemon powertop reflector udisks2 unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-gtk xdg-utils
 
 # Xorg e Wayland
 sudo pacman -S --needed --noconfirm numlockx xiccd xorg-apps xorg-xinit
-
-# Bluetoth, CUPS e Touchegg (Pacotes)
-sudo pacman -S --needed --noconfirm blueman bluez cups
-
-# Bluetoth, CUPS e Touchegg (Serviços)
-sudo systemctl enable bluetooth cups
 
 # CIFS, EXFAT, GVFS, NTFS
 sudo pacman -S --needed --noconfirm cifs-utils exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd ntfs-3g
@@ -60,7 +54,7 @@ sudo pacman -S --needed --noconfirm adwaita-cursors adwaita-fonts adwaita-icon-t
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm dconf-editor galculator gcolor3 gigolo gnome-screenshot gparted l3afpad mugshot mpv seahorse xarchiver xpdf xscreensaver
+sudo pacman -S --needed --noconfirm gcolor3 gnome-screenshot l3afpad mate-calc mugshot mpv seahorse xarchiver xpdf xscreensaver
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
@@ -96,23 +90,24 @@ cd /home/$USUARIO
 xdg-user-dirs-update
 
 # Criar pastas
-mkdir Desktop Downloads Modelos Rede Documentos Músicas Imagens Vídeos
+mkdir Desktop Documentos Downloads Imagens Modelos Músicas Projetos Rede Vídeos
 
 # Alterar pastas
 xdg-user-dirs-update --force --set DESKTOP /home/$USUARIO/Desktop
-xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
-xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
-xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set DOCUMENTS /home/$USUARIO/Documentos
-xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
 xdg-user-dirs-update --force --set PICTURES /home/$USUARIO/Imagens
+xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
+xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set PROJECTS /home/$USUARIO/Projetos
+xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set VIDEOS /home/$USUARIO/Vídeos
 
 # Atualizar pastas padrão
 xdg-user-dirs-update
 
 # Remover pastas antigas
-rm -rf Documents Music Pictures Public Templates Videos
+rm -rf Documents Music Pictures Projects Public Templates Videos
 
 # Nano syntax highlighting
 echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
