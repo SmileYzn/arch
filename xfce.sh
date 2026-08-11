@@ -25,7 +25,7 @@ sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completio
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-gtk xdg-utils
 
 # Xorg e Wayland
-sudo pacman -S --needed --noconfirm numlockx xiccd xorg-apps
+sudo pacman -S --needed --noconfirm numlockx xiccd
 
 # Bluetooth
 sudo pacman -S --needed --noconfirm blueman bluez
@@ -41,7 +41,7 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 sudo fc-cache -f -v
 
 # XFCE4 Plugins
-sudo pacman -S --needed --noconfirm xfce4-goodies xfce4-calculator-plugin xfce4-docklike-plugin xfce4-generic-slider xfce4-mixer xfce4-panel-profiles xfce4-stopwatch-plugin xfce4-volumed-pulse xfce4-windowck-plugin
+sudo pacman -S --needed --noconfirm xfce4-goodies xfce4-docklike-plugin xfce4-mixer xfce4-panel-profiles xfce4-volumed-pulse xfce4-windowck-plugin
 
 # Thunar
 sudo pacman -S --needed --noconfirm thunar-media-tags-plugin thunar-archive-plugin thunar-shares-plugin thunar-volman
@@ -53,7 +53,7 @@ sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 # Pacotes Extras
-sudo pacman -S --needed --noconfirm catfish dconf-editor drawing galculator gcolor3 gigolo gparted gthumb lightdm-gtk-greeter-settings mugshot orage parole seahorse simple-scan
+sudo pacman -S --needed --noconfirm catfish mate-calc gcolor3 gthumb lightdm-gtk-greeter-settings mugshot orage parole seahorse
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
