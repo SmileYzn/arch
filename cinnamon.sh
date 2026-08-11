@@ -41,7 +41,7 @@ sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 # Extras, Cinnamon Apps, Translations
-sudo pacman -S --needed --noconfirm bulky cinnamon-translations file-roller gnome-calc gnome-screenshot gnome-system-monitor gthumb mpv seahorse xapp xed xreader
+sudo pacman -S --needed --noconfirm bulky cinnamon-translations file-roller mate-calc gnome-screenshot gnome-system-monitor gthumb mpv seahorse xapp xed xreader
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
