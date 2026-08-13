@@ -19,7 +19,7 @@ cd /home/$USUARIO
 sudo pacman -Syyu --needed --noconfirm
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpegthumbnailer git man power-profiles-daemon powertop reflector unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpeg ffmpegthumbnailer git man nano-syntax-highlighting power-profiles-daemon powertop reflector udisks2 unace unzip unrar xz zip
 
 # XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-kde xdg-utils
@@ -28,19 +28,22 @@ sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-desktop-portal xdg-desktop
 sudo pacman -S --needed --noconfirm cifs-utils ntfs-3g exfat-utils gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb gvfs-wsdd
 
 # Fontes adicionais
-sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-droid ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
+sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-dejavu ttf-droid ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-opensans ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
 
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
 
 # Kvantum
-sudo pacman -S --needed --noconfirm kvantum kvantum-qt5
+sudo pacman -S --needed --noconfirm kvantum
 
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
+# GStreamer
+sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
+
 # Aplicativos do KDE
-sudo pacman -S --needed --noconfirm dolphin-plugins dragon filelight gwenview kcalc kcharselect kcolorchooser kfind kolourpaint kwalletmanager okular partitionmanager plasma-systemmonitor
+sudo pacman -S --needed --noconfirm dragon gwenview kcalc kcharselect kcolorchooser kwalletmanager okular plasma-systemmonitor
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
@@ -73,23 +76,31 @@ cd /home/$USUARIO
 xdg-user-dirs-update
 
 # Criar pastas
-mkdir Desktop Downloads Modelos Rede Documentos Músicas Imagens Vídeos
+mkdir Desktop Documentos Downloads Imagens Modelos Músicas Projetos Rede Vídeos
 
 # Alterar pastas
 xdg-user-dirs-update --force --set DESKTOP /home/$USUARIO/Desktop
-xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
-xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
-xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set DOCUMENTS /home/$USUARIO/Documentos
-xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set DOWNLOAD /home/$USUARIO/Downloads
 xdg-user-dirs-update --force --set PICTURES /home/$USUARIO/Imagens
+xdg-user-dirs-update --force --set TEMPLATES /home/$USUARIO/Modelos
+xdg-user-dirs-update --force --set MUSIC /home/$USUARIO/Músicas
+xdg-user-dirs-update --force --set PROJECTS /home/$USUARIO/Projetos
+xdg-user-dirs-update --force --set PUBLICSHARE /home/$USUARIO/Rede
 xdg-user-dirs-update --force --set VIDEOS /home/$USUARIO/Vídeos
 
 # Atualizar pastas padrão
 xdg-user-dirs-update
 
 # Remover pastas antigas
-rm -rf Documents Music Pictures Public Templates Videos
+rm -rf Documents Music Pictures Projects Public Templates Videos
+
+
+# Nano syntax highlighting
+echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
+
+# Limpar histórico
+history -c && > ~/.bash_history
 
 # Fim
 exit
