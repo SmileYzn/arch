@@ -42,8 +42,8 @@ sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 # GStreamer
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
-# Aplicativos do KDE
-sudo pacman -S --needed --noconfirm dragon gwenview kcalc kcharselect kcolorchooser kwalletmanager okular plasma-systemmonitor
+# Aplicativos do Plasma
+sudo pacman -S --needed --noconfirm ark dolphin dragon gwenview kate kcalc kcharselect kcolorchooser konsole kwalletmanager okular plasma-systemmonitor
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
