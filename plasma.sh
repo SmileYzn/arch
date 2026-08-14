@@ -33,9 +33,6 @@ sudo pacman -S --needed --noconfirm adobe-source-code-pro-fonts adobe-source-san
 # Atualizar o chace de fontes
 sudo fc-cache -f -v
 
-# Kvantum
-sudo pacman -S --needed --noconfirm kvantum
-
 # Firefox
 sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
@@ -43,7 +40,7 @@ sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 # Aplicativos do Plasma
-sudo pacman -S --needed --noconfirm ark dolphin dragon gwenview kate kcalc kcharselect kcolorchooser konsole kwalletmanager okular plasma-systemmonitor
+sudo pacman -S --needed --noconfirm ark dolphin dragon gwenview kate kcalc kcharselect kcolorchooser konsole kvantum kwalletmanager okular plasma-systemmonitor plasma-workspace-wallpapers
 
 # PKGFILE (Retorno de comando não encontrado)
 sudo pacman -S --needed --noconfirm pkgfile
