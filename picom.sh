@@ -43,4 +43,4 @@ sed -i 's/frame-opacity = 0.9;/frame-opacity = 1.0;/g' /home/$USUARIO/.config/pi
 sed -i 's/backend = "xrender"/backend = "glx"/g' /home/$USUARIO/.config/picom/picom.conf
 
 # Iniciar o compositor
-picom --daemon
+picom --backend glx --daemon
