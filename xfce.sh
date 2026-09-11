@@ -19,7 +19,7 @@ cd /home/$USUARIO
 sudo pacman -Syyu --needed --noconfirm
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpeg ffmpegthumbnailer git man nano-syntax-highlighting power-profiles-daemon powertop reflector udisks2 unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpeg ffmpegthumbnailer git power-profiles-daemon powertop reflector udisks2 unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-user-dirs-gtk xdg-desktop-portal xdg-desktop-portal-gtk xdg-utils
@@ -54,11 +54,6 @@ sudo pacman -S --needed --noconfirm gstreamer gst-libav gst-plugins-base gst-plu
 
 # Pacotes Extras
 sudo pacman -S --needed --noconfirm catfish mate-calc gcolor3 gthumb lightdm-gtk-greeter-settings mugshot orage parole seahorse
-
-# PKGFILE (Retorno de comando não encontrado)
-sudo pacman -S --needed --noconfirm pkgfile
-sudo pkgfile --update
-echo "source /usr/share/doc/pkgfile/command-not-found.bash" >> ~/.bashrc
 
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
@@ -104,9 +99,6 @@ xdg-user-dirs-update
 
 # Remover pastas antigas
 rm -rf Documents Music Pictures Projects Public Templates Videos
-
-# Nano syntax highlighting
-echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
 
 # Limpar histórico
 history -c && > ~/.bash_history
