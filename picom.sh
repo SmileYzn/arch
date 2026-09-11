@@ -18,6 +18,9 @@ cd /home/$USUARIO
 # Desativar compositor XFCE
 xfconf-query -c xfwm4 -p /general/use_compositing -s false
 
+# Desativar compositor MATE
+gsettings set org.mate.marco.general compositing-manager false
+
 # Instalar Picom via pacman
 sudo pacman -S --needed --noconfirm picom
 
