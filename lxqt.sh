@@ -19,13 +19,13 @@ cd /home/$USUARIO
 sudo pacman -Syyu --needed --noconfirm
 
 # Pacotes Base
-sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpeg ffmpegthumbnailer git man nano-syntax-highlighting power-profiles-daemon powertop reflector udisks2 unace unzip unrar xz zip
+sudo pacman -S --needed --noconfirm 7zip alsa-firmware base-devel bash-completion fastfetch fwupd ffmpeg ffmpegthumbnailer git power-profiles-daemon powertop reflector udisks2 unace unzip unrar xz zip
 
 # Pacotes XDG Desktop e User Dirs
 sudo pacman -S --needed --noconfirm xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-lxqt xdg-utils
 
 # Xorg
-sudo pacman -S --needed --noconfirm numlockx picom xiccd xorg-apps xorg-xinit
+sudo pacman -S --needed --noconfirm numlockx xiccd
 
 # Wayland
 sudo pacman -S needed --noconfirm labwc lxqt-wayland-session
@@ -44,11 +44,6 @@ sudo pacman -S --needed --noconfirm firefox firefox-i18n-pt-br
 
 # Pacotes Extras
 sudo pacman -S --needed --noconfirm featherpad lm_sensors lximage-qt network-manager-applet pavucontrol-qt qalculate-qt vlc
-
-# PKGFILE (Retorno de comando não encontrado)
-sudo pacman -S --needed --noconfirm pkgfile
-sudo pkgfile --update
-echo "source /usr/share/doc/pkgfile/command-not-found.bash" >> ~/.bashrc
 
 # YAY (Arch User Repository)
 git clone https://aur.archlinux.org/yay-bin.git
@@ -94,16 +89,6 @@ xdg-user-dirs-update
 
 # Remover pastas antigas
 rm -rf Documents Music Pictures Projects Public Templates Videos
-
-# Nano syntax highlighting
-echo 'include "/usr/share/nano/*.nanorc"' | sudo tee -a /etc/nanorc > /dev/null
-
-# Configurar picom Compositor
-mkdir -p /home/$USUARIO/.config/picom/
-cp /etc/xdg/picom.conf /home/$USUARIO/.config/picom/picom.conf
-sed -i 's/shadow = true;/shadow = false;/g' /home/$USUARIO/.config/picom/picom.conf
-sed -i 's/fading = true;/fading = false;/g' /home/$USUARIO/.config/picom/picom.conf
-sed -i 's/frame-opacity = 0.9;/frame-opacity = 1.0;/g' /home/$USUARIO/.config/picom/picom.conf
 
 # Limpar histórico
 history -c && > ~/.bash_history
