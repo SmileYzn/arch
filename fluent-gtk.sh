@@ -4,7 +4,7 @@
 clear
 
 # Usuário padrão (UID 1000)
-USUARIO=$(id -nu 1000)
+USUARIO=$(whoami)
 
 # Verificar acesso root
 if [[ $EUID -eq 0 ]]; then
