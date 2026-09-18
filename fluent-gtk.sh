@@ -22,9 +22,6 @@ git clone https://github.com/vinceliuice/Fluent-icon-theme.git
 # Abrir
 cd Fluent-gtk-theme
 
-# Parse SASSC
-sh parse-sass.sh
-
 # Instalar e linkar com libadwaita
 sudo sh install.sh --icon arch --size standard --tweaks solid
 sh install.sh --icon arch --size standard --tweaks solid
