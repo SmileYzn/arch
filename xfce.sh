@@ -164,9 +164,6 @@ xdg-user-dirs-update --force --set PROJECTS "$HOME/Projetos"
 xdg-user-dirs-update --force --set PUBLICSHARE "$HOME/Rede"
 xdg-user-dirs-update --force --set VIDEOS "$HOME/Vídeos"
 
-# Atualizar pastas padrão
-xdg-user-dirs-update
-
 # Limpar histórico
 history -c && > ~/.bash_history
 
