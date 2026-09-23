@@ -13,7 +13,7 @@ fi
 cd "$HOME" || exit 1
 
 # Atualizar sistema
-sudo pacman -Syyu --needed --noconfirm
+sudo pacman -Syu --needed --noconfirm
 
 # Pacotes Base
 sudo pacman -S --needed --noconfirm \
@@ -129,29 +129,31 @@ sudo fc-cache -f -v
 sudo systemctl enable bluetooth
 
 # YAY (Arch User Repository)
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg -si --needed --noconfirm
-cd ..
-rm -rf yay-bin
+git clone https://aur.archlinux.org/yay-bin.git "$HOME/yay-bin"
+makepkg -si --needed --noconfirm -D "$HOME/yay-bin"
+rm -rf "$HOME/yay-bin"
 
 # Limpar pacotes
 sudo pacman -R --noconfirm htop vim vim-runtime
 
-# Limpar dependências
-sudo pacman -Rcs --noconfirm $(pacman -Qdtq)
+# Limpar dependências órfãs
+orphans=$(pacman -Qdtq 2>/dev/null || true)
+if [[ -n "$orphans" ]]; then
+    sudo pacman -Rcs --noconfirm $orphans
+fi
 
-# Habilitar grupo Autologin
-sudo groupadd -r autologin
+# Adicionar grupo autologin
+if ! getent group autologin >/dev/null; then
+    sudo groupadd -r autologin
+fi
+
+# Adicionar ao grupo autologin
 sudo gpasswd autologin -a "$USER"
 
-# Criar pastas padrão
-xdg-user-dirs-update
+# Criar Pastas em pt-BR
+mkdir -p Desktop Documentos Downloads Imagens Modelos Músicas Projetos Rede Vídeos
 
-# Criar pastas
-mkdir Desktop Documentos Downloads Imagens Modelos Músicas Projetos Rede Vídeos
-
-# Alterar pastas
+# Atualizar XDG
 xdg-user-dirs-update --force --set DESKTOP "$HOME/Desktop"
 xdg-user-dirs-update --force --set DOCUMENTS "$HOME/Documentos"
 xdg-user-dirs-update --force --set DOWNLOAD "$HOME/Downloads"
@@ -164,9 +166,6 @@ xdg-user-dirs-update --force --set VIDEOS "$HOME/Vídeos"
 
 # Atualizar pastas padrão
 xdg-user-dirs-update
-
-# Remover pastas antigas
-rm -rf Documents Music Pictures Projects Public Templates Videos
 
 # Limpar histórico
 history -c && > ~/.bash_history
