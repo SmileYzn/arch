@@ -141,14 +141,9 @@ sudo pacman -R --noconfirm htop vim vim-runtime
 # Limpar dependências
 sudo pacman -Rcs --noconfirm $(pacman -Qdtq)
 
-# Adicionar grupo autologin
+# Habilitar grupo Autologin
 sudo groupadd -r autologin
-
-# Adicionar o usuário ao grupo
 sudo gpasswd autologin -a "$USER"
-
-# Abrir pasta do usuário
-cd "$HOME" || exit 1
 
 # Criar pastas padrão
 xdg-user-dirs-update
