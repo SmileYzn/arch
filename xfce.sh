@@ -16,6 +16,14 @@ cd "$HOME" || exit 1
 sudo pacman -Syu --needed --noconfirm
 
 # Pacotes Base
+# Pacotes XDG Desktop e User Dirs
+# CIFS, EXFAT, GVFS, NTFS
+# Fontes adicionais
+# XFCE4 Plugins
+# Thunar
+# Firefox
+# GStreamer
+# Programas Extras
 sudo pacman -S --needed --noconfirm \
 7zip \
 alsa-firmware \
@@ -38,18 +46,12 @@ unzip \
 unrar \
 xiccd \
 xz \
-zip
-
-# Pacotes XDG Desktop e User Dirs
-sudo pacman -S --needed --noconfirm \
+zip \
 xdg-user-dirs \
 xdg-user-dirs-gtk \
 xdg-desktop-portal \
 xdg-desktop-portal-gtk \
-xdg-utils
-
-# CIFS, EXFAT, GVFS, NTFS
-sudo pacman -S --needed --noconfirm \
+xdg-utils \
 cifs-utils \
 exfat-utils \
 gvfs \
@@ -59,10 +61,7 @@ gvfs-mtp \
 gvfs-nfs \
 gvfs-smb \
 gvfs-wsdd \
-ntfs-3g
-
-# Fontes adicionais
-sudo pacman -S --needed --noconfirm \
+ntfs-3g \
 adobe-source-code-pro-fonts \
 adobe-source-sans-fonts \
 adobe-source-serif-fonts \
@@ -78,48 +77,33 @@ ttf-fira-sans \
 ttf-opensans \
 ttf-roboto \
 ttf-roboto-mono \
-ttf-ubuntu-font-family
-
-# XFCE4 Plugins
-sudo pacman -S --needed --noconfirm \
+ttf-ubuntu-font-family \
 xfce4-goodies \
 xfce4-docklike-plugin \
 xfce4-mixer \
 xfce4-panel-profiles \
 xfce4-volumed-pulse \
-xfce4-windowck-plugin
-
-# Thunar
-sudo pacman -S --needed --noconfirm \
+xfce4-windowck-plugin \
 thunar-media-tags-plugin \
 thunar-archive-plugin \
 thunar-shares-plugin \
-thunar-volman
-
-# Firefox
-sudo pacman -S --needed --noconfirm \
-firefox  \
-firefox-i18n-pt-br
-
-# GStreamer
-sudo pacman -S --needed --noconfirm  \
-gstreamer  \
-gst-libav  \
-gst-plugins-base  \
-gst-plugins-good  \
-gst-plugins-bad  \
-gst-plugins-ugly
-
-# Pacotes Extras
-sudo pacman -S --needed --noconfirm  \
-catfish  \
-galculator  \
-gcolor3  \
-gthumb  \
-lightdm-gtk-greeter-settings  \
-mugshot  \
-orage  \
-parole  \
+thunar-volman \
+firefox \
+firefox-i18n-pt-br \
+gstreamer \
+gst-libav \
+gst-plugins-base \
+gst-plugins-good \
+gst-plugins-bad \
+gst-plugins-ugly \
+catfish \
+galculator \
+gcolor3 \
+gthumb \
+lightdm-gtk-greeter-settings \
+mugshot \
+orage \
+parole \
 seahorse
 
 # Atualizar o chace de fontes
