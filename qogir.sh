@@ -1,19 +1,22 @@
 #!/bin/bash
 
+# Erros
+set -e
+
+# Trap
+trap 'echo; echo "ERRO: falha na linha $LINENO"; echo "Comando: $BASH_COMMAND"; exit 1' ERR
+
 # Limpar
 clear
 
-# Usuário padrão (UID 1000)
-USUARIO=$(id -nu 1000)
-
 # Verificar acesso root
 if [[ $EUID -eq 0 ]]; then
-    echo -e "Esse script NÃO deve ser executado como ${USER}"
-    exit
+    echo "Esse script NÃO deve ser executado como root"
+    exit 1
 fi
 
 # Abrir pasta do usuário
-cd /home/$USUARIO
+cd "$HOME" || exit 1
 
 # Clonar Qogir GTK
 git clone https://github.com/vinceliuice/Qogir-theme.git
@@ -24,35 +27,25 @@ git clone https://github.com/vinceliuice/Qogir-icon-theme.git
 # Clonar Qogir Openbox
 git clone https://github.com/tr1nh/qogir-theme-openbox.git
 
+# Instalar Qogir Theme
+sudo sh "$HOME/Qogir-theme/install.sh" -i arch
+sh "$HOME/Qogir-theme/install.sh" -i arch
+sh "$HOME/Qogir-theme/install.sh" -i arch -c dark -l
 
-# Abrir Qogir Theme
-cd /home/$USUARIO
-cd Qogir-theme
+# Instalar Qogir Icon
+sudo sh "$HOME/Qogir-icon-theme/install.sh" -t default
 
-# Instalar e linkar com libadwaita
-sh install.sh -i arch
-sudo sh install.sh -i arch
-sudo sh install.sh -i arch -c dark -l
-
-# Abrir Qogir Icon
-cd /home/$USUARIO
-cd Qogir-icon-theme
-
-# Instalar Icones
-sudo sh install.sh -t default
-
-# Abrir Qogir Openbox
-cd /home/$USUARIO
-cd qogir-theme-openbox
-
-# Instlar
-sudo cp -r Qogir-Dark /usr/share/themes
-sudo cp -r Qogir-Light /usr/share/themes
+# Instalar Qogir Openbox
+sudo cp -r "$HOME/qogir-theme-openbox/Qogir-Dark" /usr/share/themes/
+sudo cp -r "$HOME/qogir-theme-openbox/Qogir-Light" /usr/share/themes/
 
 # Remover pastas
-sudo rm -rf /home/$USUARIO/Qogir-theme
-sudo rm -rf /home/$USUARIO/Qogir-icon-theme
-sudo rm -rf /home/$USUARIO/qogir-theme-openbox
+rm -rf "$HOME/Qogir-theme"
+rm -rf "$HOME/Qogir-icon-theme"
+rm -rf "$HOME/qogir-theme-openbox"
+
+# Sucesso
+echo "Qogir instalado com sucesso!"
 
 # Fim
-exit
+exit 0
