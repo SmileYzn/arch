@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Erros
+set -e
+
+# Trap
+trap 'echo; echo "ERRO: falha na linha $LINENO"; echo "Comando: $BASH_COMMAND"; exit 1' ERR
+
 # Limpar
 clear
 
@@ -118,7 +124,7 @@ makepkg -si --needed --noconfirm -D "$HOME/yay-bin"
 rm -rf "$HOME/yay-bin"
 
 # Limpar pacotes
-sudo pacman -R --noconfirm htop vim vim-runtime
+sudo pacman -R --noconfirm htop vim vim-runtime 2>/dev/null || true
 
 # Limpar dependências órfãs
 orphans=$(pacman -Qdtq 2>/dev/null || true)
